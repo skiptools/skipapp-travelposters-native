@@ -1,16 +1,20 @@
+# Xcode
+#
+# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
+
 ## User settings
 xcuserdata/
 
 xcodebuild*.log
 
-.gradle/
-.kotlin/
-.idea/
+java_pid*.hprof
+
+# Android build artifacts
+*.aar
+*.apk
+
 .*.swp
-.*.swo
 .DS_Store
-Android/app/keystore.jks
-Android/app/keystore.properties
 
 ## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
 *.xcscmblueprint
@@ -49,14 +53,13 @@ playground.xcworkspace
 Packages/
 Package.pins
 Package.resolved
-#*.xcodeproj
+*.xcodeproj
 
 # Xcode automatically generates this directory with a .xcworkspacedata file and xcuserdata
 # hence it is not needed unless you have added a package configuration file to your project
 .swiftpm
+
 .build/
-.idea/
-.gradle/
 
 # CocoaPods
 #
@@ -99,6 +102,13 @@ fastlane/test_output
 
 iOSInjectionProject/
 
+
+
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
+
 # gradle properties
 local.properties
-

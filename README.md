@@ -8,13 +8,18 @@ Iterate on both the `travel-posters-model` shared model package and the iOS app 
 
 Iterate on the Android app by opening the `Android/settings.gradle.kts` file in Android Studio.
 
-To donate the latest `travel-posters-model` shared model code to the Android app:
+To donate the latest `travel-posters-model` shared model code to the Android app's debug target and then build the app:
 
 ```shell
-$ cd travel-posters-model
-$ skip export
-$ cp .build/skip-export/*-release* ../Android/lib/release/
-$ cp .build/skip-export/*-debug* ../Android/lib/debug/
+$ skip export --project travel-posters-model -d Android/lib/debug/ --debug
+$ gradle -p Android assembleDebug
+```
+
+Similarly, for the release build, you would run:
+
+```shell
+$ skip export --project travel-posters-model -d Android/lib/release/ --release
+$ gradle -p Android assembleRelease
 ```
 
 There are many ways to automate this process, from simple scripting to git submodules to publishing the Android `travel-posters-model` output to a local Maven repository. Use whatever system fits your team's workflow best.

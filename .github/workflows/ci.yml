@@ -1,0 +1,58 @@
+name: skipapp-travelposters-native
+on:
+  push:
+    branches: '*'
+    tags: "[0-9]+.[0-9]+.[0-9]+"
+  schedule:
+    - cron:  '0 1,16 * * *'
+  workflow_dispatch:
+  pull_request:
+
+permissions:
+  contents: write
+
+jobs:
+  build-app:
+    runs-on: macos-15
+    steps:
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: current
+          generate-job-summary: false
+      - name: Cache Homebrew packages
+        uses: actions/cache@v4
+        with:
+          path: ~/Library/Caches/Homebrew
+          key: homebrew-packages
+
+      - run: brew install skiptools/skip/skip
+      - run: skip android sdk install --verbose
+      - uses: actions/checkout@v4
+
+      # debug build
+      - run: skip export --project travel-posters-model -d Android/lib/debug/ --debug
+      - run: gradle -p Android assembleDebug
+      - run: ls -lah Android/app/build/outputs/apk/debug/app-debug.apk
+
+      # release build
+      - run: skip export --project travel-posters-model -d Android/lib/release --release
+      - run: gradle -p Android assembleRelease
+      - run: Android/app/build/outputs/apk/release/app-release-unsigned.apk
+
+      # run a few more times to try to reproduce multiple export errors
+      - run: rm -rf travel-posters-model/.build
+      - run: skip export --project travel-posters-model
+      - run: skip export --project travel-posters-model
+
+      - run: rm -rf travel-posters-model/.build
+      - run: skip export --project travel-posters-model
+      - run: skip export --project travel-posters-model
+
+      - run: rm -rf travel-posters-model/.build
+      - run: skip export --project travel-posters-model
+      - run: skip export --project travel-posters-model
+
+      - run: rm -rf travel-posters-model/.build
+      - run: skip export --project travel-posters-model
+      - run: skip export --project travel-posters-model
+
