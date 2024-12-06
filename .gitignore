@@ -9,9 +9,10 @@ xcodebuild*.log
 
 java_pid*.hprof
 
-# Android build artifacts
+# Android build artifacts from skip export
 *.aar
 *.apk
+*.zip
 
 .*.swp
 .DS_Store

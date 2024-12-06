@@ -39,8 +39,10 @@ jobs:
       - run: gradle -p Android assembleRelease
       - run: ls -lah Android/app/build/outputs/apk/release/app-release-unsigned.apk
 
-      # run a few more times to try to reproduce multiple export errors
-      - run: rm -rf travel-posters-model/.build
+      # run unit tests after the build to ensure that it isn't a pre-req
+      - run: swift test --package-path travel-posters-model
+
+      # export a few more times to try to reproduce multiple export errors
       - run: skip export --project travel-posters-model
       - run: skip export --project travel-posters-model
       - run: skip export --project travel-posters-model
