@@ -23,7 +23,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/Library/Caches/Homebrew
-          key: homebrew-packages
+          key: homebrew-package-cache
 
       - run: brew install skiptools/skip/skip
       - run: skip android sdk install --verbose
@@ -42,22 +42,13 @@ jobs:
       # run unit tests after the build to ensure that it isn't a pre-req
       - run: swift test --package-path travel-posters-model
 
-      # export a few more times to try to reproduce multiple export errors
-      - run: skip export --project travel-posters-model
-      - run: skip export --project travel-posters-model
-      - run: skip export --project travel-posters-model
+      # run a few more times to try to reproduce multiple test erros
+      - run: swift test --package-path travel-posters-model
+      - run: swift test --package-path travel-posters-model
+      - run: swift test --package-path travel-posters-model
+      - run: swift test --package-path travel-posters-model
 
-      - run: rm -rf travel-posters-model/.build
-      - run: skip export --project travel-posters-model
-      - run: skip export --project travel-posters-model
-      - run: skip export --project travel-posters-model
-
-      - run: rm -rf travel-posters-model/.build
-      - run: skip export --project travel-posters-model
-      - run: skip export --project travel-posters-model
-      - run: skip export --project travel-posters-model
-
-      - run: rm -rf travel-posters-model/.build
+      # re-export to make sure it still works
       - run: skip export --project travel-posters-model
       - run: skip export --project travel-posters-model
       - run: skip export --project travel-posters-model
