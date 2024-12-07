@@ -48,6 +48,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          RELTAG=${GITHUB_REF#refs/*/}
           mkdir release-files
           cp Android/app/build/outputs/apk/*/*.apk release-files/
           skip export --project travel-posters-model -d release-files/
