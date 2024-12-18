@@ -58,6 +58,7 @@ fun CityPoster(city: City, isFavorite: () -> Boolean, setFavorite: (Boolean) -> 
         )
 
         Box(modifier = Modifier.matchParentSize()
+            .clip(RoundedCornerShape(20.dp))
             .background(brush = Brush.verticalGradient(colors = listOf(Color.Transparent, Color.Transparent, Color.Black.copy(alpha = .4f))))
         )
 
