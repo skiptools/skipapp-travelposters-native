@@ -16,7 +16,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://source.skip.tools/skip.git", from: "1.2.0"),
         .package(url: "https://source.skip.tools/skip-model.git", from: "1.0.0"),
-        .package(url: "https://source.skip.tools/skip-fuse.git", "0.0.0"..<"2.0.0")
+        .package(url: "https://source.skip.tools/skip-fuse.git", from: "1.0.0")
     ],
     targets: [
         .target(name: "TravelPostersModel",

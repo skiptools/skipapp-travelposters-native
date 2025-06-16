@@ -1,7 +1,7 @@
 name: skipapp-travelposters-native
 on:
   push:
-    branches: '*'
+    branches: [ main ]
     tags: "[0-9]+.[0-9]+.[0-9]+"
   schedule:
     - cron:  '0 1,16 * * *'
