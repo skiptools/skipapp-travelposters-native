@@ -24,6 +24,7 @@ let package = Package(
                 .product(name: "SkipFuse", package: "skip-fuse"), 
                 .product(name: "SkipModel", package: "skip-model")
             ],
+            resources: [.process("Resources")],
             plugins: [.plugin(name: "skipstone", package: "skip")]),
         .testTarget(name: "TravelPostersModelTests",
             dependencies: [
