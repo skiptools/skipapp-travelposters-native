@@ -15,19 +15,11 @@ jobs:
   build-app:
     runs-on: macos-15
     steps:
-      - uses: gradle/actions/setup-gradle@v4
+      - uses: skiptools/actions/setup-skip@sdk-install
         with:
-          gradle-version: current
-          add-job-summary: never
-      - name: Cache Homebrew packages
-        uses: actions/cache@v4
-        with:
-          path: ~/Library/Caches/Homebrew
-          key: homebrew-package-cache
+          install-swift-android-sdk: true
 
-      - run: brew install skiptools/skip/skip
-      - run: skip android sdk install --verbose
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       # debug build
       - run: skip export --project travel-posters-model -d Android/lib/debug/ --debug
@@ -39,9 +31,12 @@ jobs:
       - run: gradle -p Android assembleRelease
       - run: ls -lah Android/app/build/outputs/apk/release/app-release-unsigned.apk
 
-      # run a few more times to try to reproduce multiple test erros
-      - run: swift test --package-path travel-posters-model
-      - run: swift test --package-path travel-posters-model
+      - name: "Upload Build Artifacts"
+        uses: actions/upload-artifact@v6
+        with: 
+          path: |
+            Android/lib/
+            Android/app/build/outputs/apk/
 
       - name: "Release"
         if: ${{ startsWith(github.ref, 'refs/tags/') }}
