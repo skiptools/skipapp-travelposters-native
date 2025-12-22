@@ -16,11 +16,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: ['macos-latest']
-        swift-android-sdk-version: ['6.2']
-        # TODO:
-        #os: ['macos-latest', 'ubuntu-latest']
-        #swift-android-sdk-version: ['nightly-6.3', 'nightly-main']
+        #os: ['macos-latest']
+        #swift-android-sdk-version: ['6.2']
+        os: ['macos-latest', 'ubuntu-latest']
+        swift-android-sdk-version: ['nightly-6.3', 'nightly-main']
     runs-on: ${{ matrix.os }}
     steps:
       - uses: skiptools/actions/setup-skip@v1
