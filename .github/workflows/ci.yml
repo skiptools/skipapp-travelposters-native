@@ -22,7 +22,7 @@ jobs:
         swift-android-sdk-version: ['nightly-6.3', 'nightly-main']
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: skiptools/actions/setup-skip@v1
+      - uses: skiptools/actions/setup-skip@main
         with:
           install-swift-android-sdk: true
           swift-android-sdk-version: ${{ matrix.swift-android-sdk-version }}
@@ -42,6 +42,7 @@ jobs:
       - name: "Upload Build Artifacts"
         uses: actions/upload-artifact@v6
         with: 
+          name: artifacts-${{ matrix.os }}-${{ matrix.swift-android-sdk-version }}
           path: |
             Android/lib/
             Android/app/build/outputs/apk/
