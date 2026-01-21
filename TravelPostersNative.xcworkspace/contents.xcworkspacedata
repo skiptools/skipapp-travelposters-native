@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:iOS/../travel-posters-model">
+      location = "group:travel-posters-model">
    </FileRef>
    <FileRef
       location = "group:iOS/TravelPostersNative/TravelPostersNative.xcodeproj">
