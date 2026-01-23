@@ -1,9 +1,9 @@
 # TravelPostersNative
 
-This is a demonstration of using a shared [Skip Fuse](https://skip.tools) dual-platform model library in native Swift to power both an iOS and an Android app.
+This is a demonstration of using a shared [Skip Fuse](https://skip.dev) dual-platform model library in native Swift to power both an iOS and an Android app.
 
 For more information on this project, see the blog post
-[Native Swift on Android, Part 3: Sharing a Swift Model Layer](https://skip.tools/blog/shared-swift-model/).
+[Native Swift on Android, Part 3: Sharing a Swift Model Layer](https://skip.dev/blog/shared-swift-model/).
 
 ## Workflow
 
