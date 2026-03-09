@@ -1,13 +1,13 @@
 # TravelPostersModel
 
-This is a [Skip](https://skip.tools) Swift/Kotlin library project containing the following modules:
+This is a [Skip](https://skip.dev) Swift/Kotlin library project containing the following modules:
 
 TravelPostersModel
 
 ## Building
 
 This project is a Swift Package Manager module that uses the
-[Skip](https://skip.tools) plugin to transpile Swift into Kotlin.
+[Skip](https://skip.dev) plugin to transpile Swift into Kotlin.
 
 Building the module requires that Skip be installed using 
 [Homebrew](https://brew.sh) with `brew install skiptools/skip/skip`.
