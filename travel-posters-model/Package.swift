@@ -9,7 +9,7 @@ let package = Package(
         .library(name: "TravelPostersModel", type: .dynamic, targets: ["TravelPostersModel"]),
     ],
     dependencies: [
-        .package(url: "https://source.skip.tools/skip.git", from: "1.2.0"),
+        .package(url: "https://source.skip.tools/skip.git", from: "1.9.2"),
         .package(url: "https://source.skip.tools/skip-model.git", from: "1.0.0"),
         .package(url: "https://source.skip.tools/skip-fuse.git", from: "1.0.0")
     ],

@@ -8,7 +8,7 @@ import SkipFuse
     private static let favoritesURL = URL.applicationSupportDirectory.appendingPathComponent("favorites.json")
 
     /// The app-wide singleton `CityManager`
-    public static let shared = CityManager()
+    nonisolated(unsafe) public static let shared = CityManager()
 
     private init() {
         do {
