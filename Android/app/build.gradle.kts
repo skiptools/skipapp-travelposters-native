@@ -1,6 +1,5 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.compose.compiler)
 }
 
@@ -12,12 +11,12 @@ kotlin {
 
 android {
     namespace = "tools.skip.travelposters"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "tools.skip.travelposters"
         minSdk = 29
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 

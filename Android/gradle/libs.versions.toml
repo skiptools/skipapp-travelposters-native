@@ -1,7 +1,6 @@
 [versions]
 jvm = "17"
-#agp = "9.0.0"
-agp = "8.13.0"
+agp = "9.2.0"
 kotlin = "2.3.0"
 coreKtx = "1.16.0"
 junit = "4.13.2"
@@ -34,6 +33,5 @@ coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref 
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 
