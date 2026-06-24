@@ -17,7 +17,7 @@ jobs:
       fail-fast: false
       matrix:
         os: ['macos-latest']
-        swift-android-sdk-version: ['6.2']
+        swift-android-sdk-version: ['6.3.2']
         # TODO:
         #os: ['macos-latest', 'ubuntu-latest']
         #swift-android-sdk-version: ['nightly-6.3', 'nightly-main']
@@ -28,7 +28,7 @@ jobs:
           install-swift-android-sdk: true
           swift-android-sdk-version: ${{ matrix.swift-android-sdk-version }}
 
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       # debug build
       - run: skip export --project travel-posters-model -d Android/lib/debug/ --debug
@@ -41,7 +41,7 @@ jobs:
       - run: ls -lah Android/app/build/outputs/apk/release/app-release-unsigned.apk
 
       - name: "Upload Build Artifacts"
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with: 
           path: |
             Android/lib/
